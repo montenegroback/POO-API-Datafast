@@ -327,7 +327,7 @@ class DataFastRequest {
     */
 
     private function getTotalTaria12() {
-        $total_tarifa12 = str_replace('.', '', number_format($this->total_tarifa12, 2));
+        $total_tarifa12 = str_replace('.', '', $this->total_tarifa12);
         return str_pad($total_tarifa12, 12, '0', STR_PAD_LEFT);
     }
 
@@ -339,7 +339,7 @@ class DataFastRequest {
     */
 
     private function getTotalBase0() {
-        $total_base0 = str_replace('.', '', number_format($this->total_base0, 2));
+        $total_base0 = str_replace('.', '', $this->total_base0);
         return str_pad($total_base0, 12, '0', STR_PAD_LEFT);
     }
 
@@ -351,7 +351,7 @@ class DataFastRequest {
     */
 
     private function getApplyIva() {
-        return number_format($this->total_tarifa12 * $this->iva, 2);
+        return $this->total_tarifa12 * $this->iva;
     }
 
     /**
@@ -362,7 +362,7 @@ class DataFastRequest {
     */
 
     private function getAmount() {
-        return number_format($this->getApplyIva() + $this->total_tarifa12, 2);
+        return $this->getApplyIva() + $this->total_tarifa12;
     }
 
     /**
