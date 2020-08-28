@@ -362,7 +362,7 @@ class DataFastRequest {
     */
 
     private function getAmount() {
-        return $this->getApplyIva() + $this->total_tarifa12;
+        return number_format($this->getApplyIva() + $this->total_tarifa12, 2, '.', '');
     }
 
     /**
